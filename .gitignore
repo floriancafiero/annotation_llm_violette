@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+OPENROUTER_API_KEY
+runs/
+.DS_Store
