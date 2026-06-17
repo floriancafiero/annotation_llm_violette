@@ -37,6 +37,7 @@ prompts/system_prompt.md                 Stable system prompt
 prompts/user_prompt_template.md          User prompt template for a novel
 src/annotate_openrouter.py               OpenRouter annotation runner
 src/evaluate.py                          Benchmark predictions against gold data
+src/validate_jsonl.py                    Pre-flight checks for corpus/gold/predictions
 config/models.example.yaml               Example benchmark configuration
 data/corpus_sample.jsonl                 Example input corpus format
 data/ground_truth_sample.jsonl           Example ground truth format
@@ -66,7 +67,30 @@ The corpus is a JSONL file, one novel per line:
 {"novel_id":"vivien_1904_femme","title":"Une femme m'apparut","author":"Renée Vivien","year":1904,"text":"Full text or benchmark excerpt..."}
 ```
 
-For the benchmark on 10 novels, use exactly the same text for all models. If a full novel is too long for some models, prepare a fixed benchmark excerpt or fixed chunked representation before running the comparison.
+For the benchmark on 10 novels, use exactly the same text for all models. If a full novel is too long for some models, prepare a fixed benchmark excerpt or fixed chunked representation before running the comparison. Do not let each model receive a different truncation.
+
+## Configure models
+
+Do not edit the example file directly. Copy it and record the exact model slugs used for the benchmark:
+
+```bash
+cp config/models.example.yaml config/models.local.yaml
+```
+
+Then edit `config/models.local.yaml`. Keep the same generation parameters across models for the main comparison.
+
+## Pre-flight checks
+
+Before running a paid benchmark, validate the corpus and the gold file:
+
+```bash
+python src/validate_jsonl.py \
+  --corpus data/corpus_sample.jsonl \
+  --gold data/ground_truth_sample.jsonl \
+  --schema schemas/novel_annotation.schema.json
+```
+
+This catches invalid JSONL, missing `novel_id` / `text`, duplicate novel ids in the corpus, and gold annotations that do not match the schema.
 
 ## Run annotation
 
@@ -74,10 +98,12 @@ For the benchmark on 10 novels, use exactly the same text for all models. If a f
 python src/annotate_openrouter.py \
   --input data/corpus_sample.jsonl \
   --output runs/predictions.jsonl \
-  --models-config config/models.example.yaml \
+  --models-config config/models.local.yaml \
   --schema schemas/novel_annotation.schema.json \
   --max-chars 120000
 ```
+
+By default, the script refuses to silently truncate texts longer than `--max-chars`. Use `--allow-truncate` only for documented experiments where the same fixed truncation is intended for all models.
 
 The script records, for each novel and model: model slug, generation parameters, SHA-256 hash of the input text, request body, raw response, parsed JSON annotation, and JSON-schema validation status.
 
