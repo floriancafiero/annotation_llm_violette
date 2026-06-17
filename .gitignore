@@ -1,7 +1,21 @@
-.venv/
+# Python
 __pycache__/
-*.pyc
+*.py[cod]
+.venv/
+venv/
 .env
+
+# Local configs and secrets
 OPENROUTER_API_KEY
+config/models.local.yaml
+*.local.yaml
+
+# Runs and generated outputs
 runs/
+outputs/
+logs/
+
+# OS / editors
 .DS_Store
+.vscode/
+.idea/
