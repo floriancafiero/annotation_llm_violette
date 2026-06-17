@@ -19,8 +19,8 @@ One label only.
 | Label | Definition |
 |---|---|
 | `heterosexual` | Relation between a male and a female character: romantic, conjugal, sexual, adulterous, or desirous. |
-| `female_female` | Clearly romantic, erotic, sexual, or desirous relation between women. Non-sexual but clearly amorous relations may be included. |
-| `male_male` | Clearly romantic, erotic, sexual, or desirous relation between men. |
+| `female_female` | Relation between two characters identified as female: romantic, conjugal, sexual, adulterous, or desirous. |
+| `male_male` |  Relation between two characters identified as male: romantic, conjugal, sexual, adulterous, or desirous.  |
 | `same_sex_ambiguous` | Strong same-sex intimacy, fascination, jealousy, reputation, household, or devotion, but the text does not make romance/sexuality clear enough. Use this instead of overcoding friendship as queer romance. |
 | `mixed_triangle` | A triangular or multi-person configuration mixing heterosexual and same-sex desire. |
 | `unclear` | A relation is present, but its gendered configuration cannot be reliably determined. |
