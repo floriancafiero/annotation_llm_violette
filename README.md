@@ -23,12 +23,7 @@ Each relation receives five closed variables:
 
 It also receives short evidence, a confidence level, and a brief comment.
 
-`relation_type` is now deliberately **symmetric**: it describes the gender configuration of the participants (`female_male`, `female_female`, `male_male`, `mixed_or_multi`, `unknown_gender`, `unclear`). It does not encode whether the relation is certainly romantic or sexual. That uncertainty is handled by `explicitness` and `confidence`, so there is no separate `female_female_ambiguous`, `male_male_ambiguous`, or `female_male_ambiguous` label.
-
-The two corrections from the pilot annotation of Renée Vivien's *Une femme m'apparut* are included:
-
-- `framing = decadent_sublime` for morbid, painful, sacred, or aestheticized queer passion that is not simply condemned as vice or pathology;
-- `outcome = open_contested` for endings that remain suspended, disputed, or reopened rather than clearly happy, punitive, or heteronormative.
+`relation_type` describes the gender configuration of the participants (`female_male`, `female_female`, `male_male`, `mixed_or_multi`, `unknown_gender`, `unclear`). It does not encode whether the relation is certainly romantic or sexual.
 
 ## Repository layout
 
@@ -132,5 +127,3 @@ python src/evaluate.py \
 ```
 
 The evaluator performs approximate relation matching by normalized character-name overlap, then reports relation detection precision/recall/F1 and per-field accuracy among matched relations.
-
-For a serious paper, manually inspect all unmatched female-female, male-male and ambiguous low-confidence relations, because these are likely rare and substantively important.
