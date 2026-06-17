@@ -72,7 +72,7 @@ One label only.
 | Label | Definition |
 |---|---|
 | `stable_or_open` | The relation continues, remains possible, or is not narratively destroyed. |
-| `open_contested` | The ending is suspended, disputed, reopened, or undecidable; rival relations or unresolved attachments remain active. This was added after the pilot annotation of *Une femme m'apparut*. |
+| `open_contested` | The ending is suspended, disputed, reopened, or undecidable; rival relations or unresolved attachments remain active. |
 | `return_to_norm` | Return to marriage, heterosexuality, family order, social respectability, or normative domesticity. |
 | `separation_erasure` | The relation ends through separation, disappearance, forgetting, narrative marginalization, or erasure. |
 | `social_disgrace` | The relation leads to scandal, reputational ruin, exclusion, blackmail, or public shame. |
