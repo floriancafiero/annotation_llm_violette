@@ -10,7 +10,7 @@ Each novel may contain zero, one, or several annotated relationships.
 
 ## Core principle
 
-The scheme is deliberately modest. The LLM should not decide whether a passage belongs to a sophisticated theoretical category. Instead, it annotates five simpler dimensions: configuration, explicitness, centrality, framing, and outcome. Scholarly interpretation can then be built from combinations of these variables.
+We annotate here five dimensions: configuration, explicitness, centrality, framing, and outcome. Scholarly interpretation can then be built from combinations of these variables.
 
 Important distinction: `relation_type` describes the **gender configuration of the characters involved**, not the certainty that the relation is romantic or sexual. Ambiguity is handled symmetrically through `explicitness` and `confidence`. For instance, a possibly romantic friendship between two women should be coded as `female_female` plus `coded` or `weak_inference`, not as a separate asymmetric label such as `same_sex_ambiguous`.
 
@@ -26,8 +26,6 @@ One label only.
 | `mixed_or_multi` | Triangular, collective, or multi-person configuration that cannot be reduced to a single pair, or that mixes several gender configurations. |
 | `unknown_gender` | A relation is present, but the gender of one or more participants cannot be reliably determined. |
 | `unclear` | A relation candidate is present, but its relational configuration cannot be reliably determined. |
-
-Do **not** create separate labels such as `female_female_ambiguous`, `male_male_ambiguous`, or `female_male_ambiguous`. Use the relevant configuration label above, then mark the uncertainty with `explicitness = coded`, `rumor`, or `weak_inference`, and with `confidence = medium` or `low`.
 
 ## 2. `explicitness`
 
