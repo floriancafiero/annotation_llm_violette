@@ -1,4 +1,4 @@
-# Annotation LLM Violette
+# LLM Annotation: relationships between characters
 
 Framework for LLM-assisted annotation of romantic, erotic, conjugal, desirous and queer-coded relationships in late nineteenth- and early twentieth-century novels.
 
