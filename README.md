@@ -76,8 +76,6 @@ The corpus is a JSONL file, one novel per line:
 {"novel_id":"vivien_1904_femme","title":"Une femme m'apparut","author":"Renée Vivien","year":1904,"text":"Full text or benchmark excerpt..."}
 ```
 
-For the benchmark on 10 novels, use exactly the same text for all models. If a full novel is too long for some models, prepare a fixed benchmark excerpt or fixed chunked representation before running the comparison. Do not let each model receive a different truncation.
-
 ## Configure models
 
 Do not edit the example file directly. Copy it and record the exact model slugs used for the benchmark:
